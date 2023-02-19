@@ -24,7 +24,6 @@ public partial class SeekPage : ContentPage
     {
 #if IOS
         Debug.WriteLine("Media opening IOS");
-        Pos = TimeSpan.FromSeconds(200);
         if (mediaElement.Position < TimeSpan.FromSeconds(200)) // seek does not fire without this line.
         {
             mediaElement?.SeekTo(TimeSpan.FromSeconds(200));
