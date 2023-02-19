@@ -15,6 +15,10 @@ public partial class SeekPage : ContentPage
 	}
     public void DoesNotWorkInIOS(object sender, EventArgs e)
     {
+        if (sender is null)
+        {
+            return;
+        }
         Debug.WriteLine("Media Opened");
         mediaElement?.SeekTo(TimeSpan.FromSeconds(200)); //Never seeks in iOS when you use media opened. 
         Debug.WriteLine("Seeking 200 seconds");
@@ -29,13 +33,13 @@ public partial class SeekPage : ContentPage
             mediaElement?.SeekTo(TimeSpan.FromSeconds(200));
         }
 #endif
-        mediaElement.StateChanged -= IOS;
     }
     private void ContentPage_Unloaded(object sender, EventArgs e)
     {
         System.Diagnostics.Debug.WriteLine("Unloading media element");
         // Stop and cleanup MediaElement when we navigate away
-        
+
+        mediaElement.StateChanged -= IOS;
         mediaElement.Handler?.DisconnectHandler();
     }
 }
