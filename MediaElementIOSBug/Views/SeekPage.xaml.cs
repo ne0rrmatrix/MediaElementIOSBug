@@ -10,7 +10,7 @@ public partial class SeekPage : ContentPage
 		InitializeComponent();
 		BindingContext = viewModel;
         mediaElement.MediaOpened += DoesNotWorkInIOS; // This works in windows and android. Does not work for IOS.
-        mediaElement.StateChanged += IOS; // Work around for ios.
+       // mediaElement.StateChanged += IOS; // Work around for ios.
     
 	}
     public void DoesNotWorkInIOS(object sender, EventArgs e)
