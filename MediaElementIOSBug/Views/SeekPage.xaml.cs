@@ -18,7 +18,7 @@ public partial class SeekPage : ContentPage
         Debug.WriteLine("Media Opened");
         mediaElement?.SeekTo(TimeSpan.FromSeconds(200)); //Never seeks in iOS when you use media opened. 
         Debug.WriteLine("Seeking 200 seconds");
-        mediaElement.MediaOpened -= DoesNotWorkInIOS;
+        mediaElement.MediaOpened -= DoesNotWorkInIOS; 
     }
     public void IOS(object sender, EventArgs e)
     {
